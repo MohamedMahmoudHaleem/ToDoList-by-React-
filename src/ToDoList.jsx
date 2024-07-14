@@ -28,11 +28,14 @@ export default function ToDoList() {
     setTasks(() => [...tasks]);
   }
   console.log(tasks);
+  function EnterInputData(e) {
+    if (e.key === "Enter") handleInputChange();
+  }
   return (
     <div className="container">
       <h1>To-Do-List</h1>
       <div className="data">
-        <input ref={btnRef} type="text" />
+        <input ref={btnRef} type="text" onKeyDown={EnterInputData} />
         <button className="btnAdd" onClick={handleInputChange}>
           Add
         </button>
